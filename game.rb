@@ -17,6 +17,7 @@ class Game
       answer = question.start_question
       turn_summary(answer)
       switch_roles
+      puts "----- NEW TURN -----" if game_ongoing
     end
   end
 
@@ -27,10 +28,11 @@ class Game
   end
 
   def turn_summary(answer)
+
     if (answer)
-      "#{self.player_asking}: YES! You are correct!"
+      puts "#{self.player_asking.name}: YES! You are correct!"
     else
-      "#{self.player_asking}: Seriously? No!"
+      puts "#{self.player_asking.name}: Seriously? No!"
       self.player_answering.lose_life
     end
 
